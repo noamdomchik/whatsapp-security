@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>כניסה למערכת</title>
+    <title>System Login</title>
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#1976d2">
     <link rel="apple-touch-icon" href="icon.svg">
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -16,7 +16,7 @@
         }
 
         body {
-            font-family: 'Heebo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: #ffffff;
             min-height: 100vh;
             display: flex;
@@ -142,7 +142,7 @@
             border-radius: 8px;
             margin-bottom: 20px;
             font-size: 0.9rem;
-            border-right: 4px solid #c62828;
+            border-left: 4px solid #c62828;
         }
 
         .success-message {
@@ -153,7 +153,7 @@
             border-radius: 8px;
             margin-bottom: 20px;
             font-size: 0.9rem;
-            border-right: 4px solid #2e7d32;
+            border-left: 4px solid #2e7d32;
         }
 
         .profile-card {
@@ -197,7 +197,7 @@
             background: white;
             border-radius: 10px;
             padding: 20px;
-            text-align: right;
+            text-align: left;
         }
 
         .detail-row {
@@ -274,17 +274,17 @@
             background: #f8f9fa;
             border-radius: 10px;
             padding: 18px;
-            border-right: 4px solid #1976d2;
+            border-left: 4px solid #1976d2;
             transition: transform 0.2s, box-shadow 0.2s;
         }
 
         .setting-item:hover {
-            transform: translateX(-4px);
+            transform: translateX(4px);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         .setting-item.warning {
-            border-right-color: #c62828;
+            border-left-color: #c62828;
             background: #ffebee;
         }
 
@@ -336,44 +336,6 @@
 
         .btn-done:hover {
             background: #1b5e20;
-        }
-
-        .play-store-section {
-            text-align: center;
-            margin-top: 24px;
-            padding-top: 20px;
-            border-top: 1px solid #e0e0e0;
-        }
-
-        .play-store-text {
-            color: #666;
-            font-size: 0.95rem;
-            margin-bottom: 12px;
-        }
-
-        .btn-playstore {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: #01875f;
-            color: white;
-            text-decoration: none;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            transition: background 0.2s, transform 0.2s;
-            box-shadow: 0 2px 6px rgba(1, 135, 95, 0.3);
-        }
-
-        .btn-playstore:hover {
-            background: #016d4d;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(1, 135, 95, 0.4);
-        }
-
-        .play-icon {
-            font-size: 1.1rem;
         }
 
         .pwa-install-box {
@@ -435,7 +397,7 @@
 
         .install-instructions {
             margin-top: 24px;
-            text-align: right;
+            text-align: left;
             background: white;
             border-radius: 12px;
             padding: 20px;
@@ -475,12 +437,12 @@
         }
 
         .password-wrapper input {
-            padding-left: 48px;
+            padding-right: 48px;
         }
 
         .toggle-password {
             position: absolute;
-            left: 12px;
+            right: 12px;
             top: 50%;
             transform: translateY(-50%);
             background: none;
@@ -499,41 +461,45 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="title">כניסה למערכת</h1>
-        <p class="subtitle">אנא הזן את פרטי הכניסה שלך</p>
+        <h1 class="title">System Login</h1>
+        <p class="subtitle">Please enter your login details</p>
         
         <div class="error-message" id="errorMessage"></div>
         <div class="success-message" id="successMessage"></div>
 
         <form id="loginForm">
             <div class="form-group">
-                <label for="username">שם משתמש *</label>
-                <input type="text" id="username" name="username" placeholder="הכנס שם משתמש" required>
+                <label for="username">Username *</label>
+                <input type="text" id="username" name="username" placeholder="Enter username" required>
             </div>
 
             <div class="form-group">
-                <label for="password">סיסמה *</label>
+                <label for="password">Password *</label>
                 <div class="password-wrapper">
-                    <input type="password" id="password" name="password" placeholder="הכנס סיסמה" required>
+                    <input type="password" id="password" name="password" placeholder="Enter password" required>
                     <button type="button" class="toggle-password" onclick="togglePassword()">👁️</button>
                 </div>
             </div>
 
-            <button type="submit" class="btn-submit" id="submitBtn">כניסה</button>
+            <button type="submit" class="btn-submit" id="submitBtn">Sign In</button>
         </form>
+
+        <div class="signup-link">
+            Don't have an account? <a href="#">Sign up here</a>
+        </div>
 
         <div class="profile-card" id="profileCard" style="display: none;">
             <div class="profile-header">
                 <div class="profile-avatar">👤</div>
-                <h2 class="profile-title">פרטי החשבון</h2>
+                <h2 class="profile-title">Account Details</h2>
             </div>
             <div class="profile-details">
                 <div class="detail-row">
-                    <span class="detail-label">שם משתמש:</span>
+                    <span class="detail-label">Username:</span>
                     <span class="detail-value" id="displayUsername"></span>
                 </div>
                 <div class="detail-row">
-                    <span class="detail-label">סיסמה:</span>
+                    <span class="detail-label">Password:</span>
                     <span class="detail-value" id="displayPassword"></span>
                 </div>
             </div>
@@ -542,100 +508,96 @@
         <div class="security-settings" id="securitySettings" style="display: none;">
             <div class="security-header">
                 <div class="security-icon">🔒</div>
-                <h2 class="security-title">הגדרות אבטחת WhatsApp</h2>
-                <p class="security-subtitle">עקוב אחרי השלבים הבאים כדי להגן על החשבון שלך</p>
+                <h2 class="security-title">WhatsApp Security Settings</h2>
+                <p class="security-subtitle">Follow these steps to protect your account</p>
             </div>
             
             <div class="settings-list">
                 <div class="setting-item">
                     <div class="setting-number">1</div>
                     <div class="setting-content">
-                        <h3>הפעל אימות דו-שלבי</h3>
-                        <p>פתח את WhatsApp → הגדרות → חשבון → אימות דו-שלבי → הזן קוד PIN בן 6 ספרות שתזכור.</p>
+                        <h3>Enable Two-Step Verification</h3>
+                        <p>Open WhatsApp → Settings → Account → Two-Step Verification → Enter a 6-digit PIN you'll remember.</p>
                     </div>
                 </div>
                 
                 <div class="setting-item">
                     <div class="setting-number">2</div>
                     <div class="setting-content">
-                        <h3>בדוק התחברויות פעילות</h3>
-                        <p>WhatsApp Web → בדוק אם יש מכשירים מחוברים שלא אתה מכיר. אם כן - התנתק מכולם מיד.</p>
+                        <h3>Check Active Sessions</h3>
+                        <p>WhatsApp Web → Check for unknown connected devices. If found, log out from all of them immediately.</p>
                     </div>
                 </div>
                 
                 <div class="setting-item">
                     <div class="setting-number">3</div>
                     <div class="setting-content">
-                        <h3>הגדר את פרטיותך</h3>
-                        <p>הגדרות → פרטיות → הגבל את מי שרואה את תמונת הפרופיל, הסטטוס ומידע האחרון שלך ל"אנשי הקשר שלי".</p>
+                        <h3>Set Your Privacy</h3>
+                        <p>Settings → Privacy → Limit who can see your profile photo, status, and last seen to "My Contacts".</p>
                     </div>
                 </div>
                 
                 <div class="setting-item">
                     <div class="setting-number">4</div>
                     <div class="setting-content">
-                        <h3>אל תלחץ על קישורים חשודים</h3>
-                        <p>אף פעם אל תפתח קישורים מאנשים לא מוכרים. זו הדרך הנפוצה ביותר לפריצה לחשבון.</p>
+                        <h3>Don't Click Suspicious Links</h3>
+                        <p>Never open links from unknown people. This is the most common way accounts get hacked.</p>
                     </div>
                 </div>
                 
                 <div class="setting-item">
                     <div class="setting-number">5</div>
                     <div class="setting-content">
-                        <h3>עדכן את WhatsApp</h3>
-                        <p>ודא שאתה תמיד עם הגרסה העדכנית ביותר של האפליקציה - עדכונים כוללים תיקוני אבטחה חשובים.</p>
+                        <h3>Update WhatsApp</h3>
+                        <p>Always keep the latest version of the app - updates include important security fixes.</p>
                     </div>
                 </div>
                 
                 <div class="setting-item">
                     <div class="setting-number">6</div>
                     <div class="setting-content">
-                        <h3>גבה את הצ'אטים שלך</h3>
-                        <p>הגדרות → שיחות → גיבוי שיחות → הפעל גיבוי אוטומטי ל-Google Drive או iCloud.</p>
+                        <h3>Backup Your Chats</h3>
+                        <p>Settings → Chats → Chat Backup → Enable automatic backup to Google Drive or iCloud.</p>
                     </div>
                 </div>
                 
                 <div class="setting-item warning">
                     <div class="setting-number">⚠️</div>
                     <div class="setting-content">
-                        <h3>אם נפרץ לך החשבון</h3>
-                        <p>1. נתק את WhatsApp Web מיד<br>2. פנה לתמיכת WhatsApp דרך האימייל: support@whatsapp.com<br>3. דווח לחברים שלא לשלוח כסף או מידע אישי.</p>
+                        <h3>If Your Account Is Hacked</h3>
+                        <p>1. Disconnect WhatsApp Web immediately<br>2. Contact WhatsApp support via: support@whatsapp.com<br>3. Tell your friends not to send money or personal info.</p>
                     </div>
                 </div>
             </div>
             
-            <button class="btn-done" onclick="hideSettings()">הבנתי, תודה!</button>
+            <button class="btn-done" onclick="hideSettings()">Got it, thanks!</button>
             
             <div class="pwa-install-box" id="pwaInstallBox">
                 <div class="pwa-icon">📲</div>
-                <h3 class="pwa-title">התקן את האפליקציה</h3>
-                <p class="pwa-desc">התקן את "מערכת אבטחת WhatsApp" ישירות על המכשיר שלך</p>
+                <h3 class="pwa-title">Install the App</h3>
+                <p class="pwa-desc">Install "WhatsApp Security System" directly on your device</p>
                 
                 <button class="btn-install-main" id="installBtn" onclick="installApp()">
                     <span class="install-icon">⬇️</span>
-                    <span>התקן עכשיו</span>
+                    <span>Install Now</span>
                 </button>
                 
                 <div class="install-instructions" id="installInstructions">
-                    <p class="instr-title">איך מתקינים?</p>
+                    <p class="instr-title">How to install?</p>
                     <div class="instr-item">
                         <span class="instr-icon">🤖</span>
-                        <span><b>Android:</b> Chrome → תפריט (⋮) → "הוסף למסך הבית"</span>
+                        <span><b>Android:</b> Chrome → Menu (⋮) → "Add to Home Screen"</span>
                     </div>
                     <div class="instr-item">
                         <span class="instr-icon">🍎</span>
-                        <span><b>iPhone:</b> Safari → שתף → "הוסף למסך הבית"</span>
+                        <span><b>iPhone:</b> Safari → Share → "Add to Home Screen"</span>
                     </div>
                     <div class="instr-item">
                         <span class="instr-icon">💻</span>
-                        <span><b>מחשב:</b> Chrome/Edge → תפריט → "התקן אפליקציה"</span>
+                        <span><b>Desktop:</b> Chrome/Edge → Menu → "Install App"</span>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="signup-link">
-            אין לך חשבון? <a href="#">הירשם כאן</a>
         </div>
     </div>
 
@@ -651,43 +613,6 @@
                 .catch(function(error) {
                     console.log('Service Worker registration failed:', error);
                 });
-        }
-
-        // PWA Install
-        let deferredPrompt;
-        var installSection = document.getElementById('installSection');
-        var installBtn = document.getElementById('installBtn');
-
-        window.addEventListener('beforeinstallprompt', function(e) {
-            e.preventDefault();
-            deferredPrompt = e;
-            console.log('beforeinstallprompt fired');
-            var installBtn = document.getElementById('installBtn');
-            if (installBtn) {
-                installBtn.style.display = 'inline-flex';
-                installBtn.innerHTML = '<span class="install-icon">⬇️</span><span>התקן עכשיו</span>';
-            }
-        });
-
-        function installApp() {
-            if (!deferredPrompt) {
-                alert('התקנה ישירה אינה זמינה בדפדפן זה.\n\nנסה:\n📱 Android: Chrome → תפריט (⋮) → "הוסף למסך הבית"\n🍎 iPhone: Safari → שתף → "הוסף למסך הבית"\n💻 מחשב: Chrome/Edge → תפריט → "התקן אפליקציה"');
-                return;
-            }
-            deferredPrompt.prompt();
-            deferredPrompt.userChoice.then(function(choiceResult) {
-                if (choiceResult.outcome === 'accepted') {
-                    console.log('User accepted the install prompt');
-                    var installBtn = document.getElementById('installBtn');
-                    if (installBtn) {
-                        installBtn.innerHTML = '<span class="install-icon">✅</span><span>הותקן בהצלחה!</span>';
-                        installBtn.style.background = '#2e7d32';
-                    }
-                } else {
-                    console.log('User dismissed the install prompt');
-                }
-                deferredPrompt = null;
-            });
         }
 
         document.getElementById('loginForm').addEventListener('submit', function(e) {
@@ -708,7 +633,7 @@
             if (securitySettings) securitySettings.style.display = 'none';
             
             if (!username) {
-                errorDiv.textContent = 'נא להזין שם משתמש';
+                errorDiv.textContent = 'Please enter a username';
                 errorDiv.style.display = 'block';
                 document.getElementById('username').focus();
                 return;
@@ -716,7 +641,7 @@
             
             // Check if username is the allowed one
             if (username !== '6746706') {
-                errorDiv.textContent = 'שם משתמש לא חוקי. יש להשתמש בשם המשתמש המותר בלבד.';
+                errorDiv.textContent = 'Invalid username. Please use the authorized username only.';
                 errorDiv.style.display = 'block';
                 document.getElementById('username').focus();
                 document.getElementById('username').select();
@@ -724,14 +649,14 @@
             }
             
             if (!password) {
-                errorDiv.textContent = 'נא להזין סיסמה';
+                errorDiv.textContent = 'Please enter a password';
                 errorDiv.style.display = 'block';
                 document.getElementById('password').focus();
                 return;
             }
             
             // Successful login - show profile card with details
-            successDiv.textContent = 'התחברת בהצלחה!';
+            successDiv.textContent = 'Logged in successfully!';
             successDiv.style.display = 'block';
             
             console.log('Login successful:', { username: username, password: password });
@@ -769,6 +694,41 @@
                 passwordInput.type = 'password';
                 toggleBtn.textContent = '👁️';
             }
+        }
+
+        // PWA Install
+        let deferredPrompt;
+
+        window.addEventListener('beforeinstallprompt', function(e) {
+            e.preventDefault();
+            deferredPrompt = e;
+            console.log('beforeinstallprompt fired');
+            var installBtn = document.getElementById('installBtn');
+            if (installBtn) {
+                installBtn.style.display = 'inline-flex';
+                installBtn.innerHTML = '<span class="install-icon">⬇️</span><span>Install Now</span>';
+            }
+        });
+
+        function installApp() {
+            if (!deferredPrompt) {
+                alert('Direct installation is not available in this browser.\n\nTry:\n📱 Android: Chrome → Menu (⋮) → "Add to Home Screen"\n🍎 iPhone: Safari → Share → "Add to Home Screen"\n💻 Desktop: Chrome/Edge → Menu → "Install App"');
+                return;
+            }
+            deferredPrompt.prompt();
+            deferredPrompt.userChoice.then(function(choiceResult) {
+                if (choiceResult.outcome === 'accepted') {
+                    console.log('User accepted the install prompt');
+                    var installBtn = document.getElementById('installBtn');
+                    if (installBtn) {
+                        installBtn.innerHTML = '<span class="install-icon">✅</span><span>Installed Successfully!</span>';
+                        installBtn.style.background = '#2e7d32';
+                    }
+                } else {
+                    console.log('User dismissed the install prompt');
+                }
+                deferredPrompt = null;
+            });
         }
     </script>
 </body>

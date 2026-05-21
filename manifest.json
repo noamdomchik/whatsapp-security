@@ -1,7 +1,7 @@
 {
-  "name": "מערכת אבטחת WhatsApp",
+  "name": "WhatsApp Security System",
   "short_name": "WhatsApp Security",
-  "description": "מערכת לניהול הגדרות אבטחת WhatsApp",
+  "description": "System for managing WhatsApp security settings",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#ffffff",
